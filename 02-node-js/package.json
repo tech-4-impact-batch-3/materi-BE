@@ -1,0 +1,15 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "Materi node js",
+  "main": "app.js",
+  "scripts": {
+    "events": "node events",
+    "fs": "node fs"
+  },
+  "author": "Doltons",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
