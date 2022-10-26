@@ -10,13 +10,15 @@ const movies = [
 ];
 
 module.exports = {
+  // get all movies
   getMovies: (req, res) => {
     res.send({
       status: "success",
       data: movies,
     });
   },
-  getDetailMovies: (req, res) => {
+  // get movie by id
+  getMovieByID: (req, res) => {
     const params = req.params;
     const data = movies.find((item) => item.id == params.id);
     res.send({
@@ -24,13 +26,15 @@ module.exports = {
       data,
     });
   },
-  postMovies: (req, res) => {
+  // add movie
+  addMovie: (req, res) => {
     const data = req.body;
     movies.push(data);
     res.status(201);
     res.send({
       status: "success",
       message: "success add data",
+      data: movies,
     });
   },
 };

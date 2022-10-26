@@ -31,8 +31,19 @@ const movies = [
 ];
 
 app.get("/movies", checkUser, (req, res) => {
-  console.log("moviess");
-  res.send(movies);
+  res.send({
+    status: "success",
+    data: movies,
+  });
+});
+
+app.get("/movies/:id", (req, res) => {
+  const params = req.params;
+  const data = movies.find((item) => item.id == params.id);
+  res.send({
+    status: "success",
+    data,
+  });
 });
 
 app.post("/movies", (req, res) => {
