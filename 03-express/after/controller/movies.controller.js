@@ -13,7 +13,7 @@ module.exports = {
   getMovies: (req, res) => {
     res.send({
       status: "success",
-      data,
+      data: movies,
     });
   },
   getDetailMovies: (req, res) => {
