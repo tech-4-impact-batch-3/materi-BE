@@ -4,6 +4,8 @@ const allRouter = require("./routes");
 
 const PORT = 3000;
 
+app.use(express.json());
+
 app.use(allRouter);
 
 app.listen(PORT, () => {
