@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const Users = require("../models/user");
 
 const users = [
   { id: 1, email: "dollong@gmail.com", password: "123" },
@@ -38,10 +39,20 @@ router.post("/login", (req, res) => {
 });
 
 // http://localhost:3000/auth/register
-router.post("/register", (req, res) => {
-  res.json({
-    message: "success regis",
-  });
+router.post("/register", async (req, res) => {
+  try {
+    await Users.create({
+      email: req.body.email,
+    });
+
+    res.json({
+      message: "success regis",
+    });
+  } catch (error) {
+    res.json({
+      message: "failed regis",
+    });
+  }
 });
 
 module.exports = router;
